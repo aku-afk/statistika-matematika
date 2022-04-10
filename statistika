@@ -1,0 +1,111 @@
+<?php
+
+###########################################################
+#                                                         #
+#   SORTIR, MEDIAN, MODUS, MEDIAN  [CLI VERSION]          #
+#   AUTHOR : MATKAPE                                      #
+#                                                         #
+###########################################################
+
+
+$dpp = $argv[2];
+$dpc = explode($argv[1], $dpp);
+$jdat = count($dpc);
+
+function start(){ echo "  >  ";}
+function endco($c){
+	if ($c == "n") {
+		echo "\n\n";
+	} else {
+		echo "\n";
+	}
+	
+}
+
+system("clear");
+
+
+// DATA ORI
+echo "  data ori [".$jdat."] : \n";
+start();
+foreach ($dpc as $ori) {
+	echo $ori." , ";
+}
+endco('n');
+
+
+// DATA SORTIRAN
+sort($dpc);
+echo "  sortir [kecil -> besar] : \n";
+start();
+foreach ($dpc as $rtg) {
+	echo $rtg." , ";
+}
+endco('n');
+
+
+// MEDIAN
+echo "  median : \n";
+if($jdat % 2 == 0) {
+	$ex1 = (($jdat / 2) - 1);
+	$ex2 = ($ex1 + 1);
+	$has['tgh'] = (($dpc[$ex1] + $dpc[$ex2]) / 2);
+}elseif($jdat % 2 == 1) {
+	$ex1 = (($jdat / 2) - 1);
+	$ex2 = ($ex1 + 0.5);
+	$has['tgh'] = $dpc[$ex2];
+}
+start();
+echo $has['tgh'];
+endco('n');
+
+
+// MODUS
+echo "  modus : \n";
+$dat = array_count_values($dpc);
+foreach ($dat as $sus => $isi) {
+    if($isi == max($dat)){
+    	start();
+    	echo $sus."  >  banyak data = ".$isi."\n";
+    }
+}
+endco('e');
+
+
+// MEAN [AVERAGE]
+echo "  mean [rata - rata] : \n";
+$tmp = 0;
+foreach ($dpc as $rta) {
+	$tmp = ($tmp + $rta);
+}
+$has['rta'] = ($tmp / $jdat);
+start();
+echo $has['rta'];
+endco('n');
+
+
+// QUARTIL [1, 2, 3]
+echo "  kuartil : \n";
+for ($i=0; $i <= 3; $i++) { 
+	$quars = (($jdat + 1) * $i);
+	$quar[$i] = ($quars / 4);
+	$nom = $quar[$i];
+	if ($quars != 0) {
+		start();
+		echo "Q".$i." = ".$dpc[$nom-1]."\n";
+	}
+}
+endco('e');
+
+
+// SIMPANGAN QUARTIL
+echo "  simpangan kuartil : \n";
+$sik[1] = ($quar[1] - 1);
+$sik[3] = ($quar[3] - 1);
+$has['sik'] = (($dpc[$sik[3]] - $dpc[$sik[1]]) / 2);
+start();
+echo $has['sik'];
+endco('n');
+
+
+?>
