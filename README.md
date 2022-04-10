@@ -1,6 +1,6 @@
 # statistika-matematika
 
-### COMMAND
+### PERINTAH
 ```
 php statistika <pemisah data> [baris data]
 ```
