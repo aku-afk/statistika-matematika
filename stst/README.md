@@ -4,3 +4,8 @@ cara penggunaan
 ```
 ./run
 ```
+
+untuk menghentikan
+```
+Ctrl + C
+```
