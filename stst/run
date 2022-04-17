@@ -1,4 +1,11 @@
 #!/bin/bash
 
-php -S localhost:9999
+clear
+
+echo '  phplib statistika'
+echo '  ide by : mamat'
+echo '  --------------------------'
+
 python jalan.py
+php -S localhost:9999
+
