@@ -1,6 +1,6 @@
 ### BONUS KALKULATOR STATISTIKA VERSI BROWSER
 
-## cara penggunaan
+cara penggunaan
 ```
 ./run
 ```
