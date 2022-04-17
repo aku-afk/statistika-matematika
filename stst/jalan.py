@@ -1,2 +1,2 @@
 import os
-os.system('xdg-open localhost:9999')
+os.system('xdg-open http://localhost:9999/')
